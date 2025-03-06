@@ -29,8 +29,7 @@ Follow these steps to set up and run the application:
     docker-compose up --build
     ```
 
-6. Access the application:
-    Account for accessing the admin panel:
+6. Account for accessing the admin panel:
     ```
     login: currency
     password: protectedpassword
