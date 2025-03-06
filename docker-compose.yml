@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mycurrency:
+    build: .
+    container_name: mycurrency
+    ports:
+      - 8000:8000
+    restart: always
+    networks:
+      - mycurrency_network
+    environment:
+      - CURRENCY_BEACON_API_KEY=bacon-api-key
+      - DJANGO_KEY=django-insecure-123
+
+
+networks:
+  mycurrency_network:
+    driver: bridge

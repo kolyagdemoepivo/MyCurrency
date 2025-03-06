@@ -1,0 +1,256 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls %}
+{% block extrahead %}
+{{ block.super }}
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 500px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .left-div {
+        width: 200px; 
+    }
+
+    .right-div {
+        width: 180px;
+    }
+    
+    .exchange-response-text {
+        color: black;
+        font-size: 15px;
+        margin-right: 20px;
+    }
+
+    #amount {
+        width: 140px;
+    }
+
+    .info-block {
+        display: flex;
+    }
+
+    .form-input {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .currency {
+        background: white;
+        color: black;
+    }
+    #dropdown1::-webkit-scrollbar {
+        background: #f1f1f1; 
+      }
+    
+    #dropdown1::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    #dropdown1::-webkit-scrollbar-thumb {
+        background:  #f1f1f1;
+    }
+    
+    #dropdown1::-webkit-scrollbar-thumb:hover {
+        background: #f1f1f1;
+    }
+
+    #exchange-result {
+        flex-direction: row;
+    }
+
+    .round-button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; 
+        background-color:rgb(185, 43, 43);
+        border: none; 
+        color: white; 
+        font-size: 24px; 
+        cursor: pointer; 
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+      }
+      
+      .round-button:hover {
+        background-color:rgb(151, 34, 34);
+      }
+
+    .close:hover {
+        color: #000;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Get the modal and buttons
+            var modal = $("#convert-modal");
+            var openBtn = $("#open-covert-modal");
+            var closeBtn = $(".close");
+
+            // Open the modal when the button is clicked
+            openBtn.click(function() {
+                modal.css("display", "block");
+                fetchDropdownData();
+            });
+
+            // Close the modal when the close button is clicked
+            closeBtn.click(function() {
+                modal.css("display", "none");
+            });
+
+            // Close the modal when clicking outside the modal content
+            $(window).click(function(event) {
+                if (event.target == modal[0]) {
+                    modal.css("display", "none");
+                }
+            });
+
+            function getSourceSelectedItems() {
+                const select = document.getElementById("dropdown");
+                const selectedOption = select.options[select.selectedIndex];
+                return selectedOption.value;
+            }
+
+            function getAmount() {
+                const input = document.getElementById("amount");
+                return input.value;
+
+            }
+
+            function getTargetSelectedItems() {
+                const select = document.getElementById("dropdown1");
+            
+                const selectedOptions = Array.from(select.selectedOptions);
+
+                const selectedValues = selectedOptions.map(option => option.value);
+                const selectedTexts = selectedOptions.map(option => option.text);
+
+                return selectedValues.join(",");
+            }
+
+            function exchangeCurrency(source, target, amount, onSuccess, onError) {
+                $.ajax({
+                    url: `/api/v1/exchange/?source=${source.toString()}&target=${target.toString()}&amount=${amount.toString()}`,
+                    method: "GET",
+                    success: function(data) {
+                        onSuccess(data)
+                    },
+                    error: function(error) {
+                        onError(error.responseText);
+                    }
+                });
+            }
+
+            function fetchDropdownData() {
+                $.ajax({
+                    url: "/api/v1/currencies/",
+                    method: "GET",
+                    success: function(data) {
+                        $(".currency").empty();
+                        data.forEach(function(currency) {
+                            $(".currency").append(`<option value="${currency.code}">${currency.name}</option>`);
+                        });
+                    },
+                    error: function(error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+
+            function renderError(response) {
+                var exchangeResult = document.getElementById("exchange-result");
+                var newItems = "<div class=\"exchange-response-text\"><p style=\"color: red\">" + response.toString() + "</p></div>\n"
+                exchangeResult.innerHTML = newItems;
+            }
+
+            function renderResponse(response) {
+                var exchangeResult = document.getElementById("exchange-result");
+                var exchange = response.exchange;
+                var newItems = "";
+                for (const [key, value] of Object.entries(exchange)) {
+                    newItems += "<div class=\"exchange-response-text\"><p>" + key.toString()+" : " + (Math.round(value * 100) / 100).toString() + "</p></div>\n"
+                  }
+                exchangeResult.innerHTML = newItems;
+            }
+
+            $("#convert-modal").submit(function(event) {
+                event.preventDefault();
+                exchangeCurrency(getSourceSelectedItems(), getTargetSelectedItems(), getAmount(), renderResponse, renderError);
+            });
+        });
+    </script>
+{% endblock %}
+{% block object-tools-items %}
+    {{ block.super }}  {# Render the default object tools #}
+    <li>
+        <a href="#" id="open-covert-modal" class="addlink" data-bs-toggle="modal" data-bs-target="#convert-modal">Convert</a>
+    </li>
+    <div id="convert-modal" class="modal">
+        
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="currency-form">
+                
+                <div class="info-block" style="margin-top: 50px;">
+                    <div class="left-div">
+                        <label for="amount" style="color: black; font-size: 18px">Amount:</label>
+                    </div>
+                    <div class="right-div">
+                        <input class="form-input" id="amount" type="number" value="100" min="0" max="100000000" step="any"/>
+                    </div>
+                    
+                </div>
+                <div class="info-block">
+                    <div class="left-div">
+                        <label for="dropdown" style="color: black; font-size: 18px">Source currency:</label>
+                    </div>
+                    <div class="right-div">
+                        <select id="dropdown" name="dropdown" class="currency"> </select>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="left-div">
+                        <label for="dropdown1" style="color: black; font-size: 18px">Target currencies:</label>
+                    </div>
+                    <div class="right-div">
+                        <select id="dropdown1" name="dropdown1" class="currency" multiple> </select>
+                    </div>
+                </div>
+                <div class="info-block" id="exchange-result">
+
+                </div>
+                <div style="width: 100%; position: relative;margin-top: 20px">
+                    <button style="font-size: 15px; margin-left:auto; display:block; margin-right: 0; border-radius: 10px;width: 100px; height: 30px; background: #669bbc">Convert</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

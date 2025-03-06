@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "dfbf7b40-6d2b-4504-89b5-d7dc276c3f9f",
+		"name": "mycurrency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42844999",
+		"_collection_link": "https://orange-firefly-200116.postman.co/workspace/New-Team-Workspace~b9b4cce2-42ae-4002-b5b8-dee7d48d332e/collection/42844999-dfbf7b40-6d2b-4504-89b5-d7dc276c3f9f?action=share&source=collection_link&creator=42844999"
+	},
+	"item": [
+		{
+			"name": "timeseries data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/rates/?currency=EUR&from_date=2025-01-27&to_date=2025-03-04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"rates",
+						""
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "EUR"
+						},
+						{
+							"key": "from_date",
+							"value": "2025-01-27"
+						},
+						{
+							"key": "to_date",
+							"value": "2025-03-04"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "timeseries data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/rates/?currency=EUR&from_date=2025-01-27&to_date=2025-03-04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"rates",
+								""
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "EUR"
+								},
+								{
+									"key": "from_date",
+									"value": "2025-01-27"
+								},
+								{
+									"key": "to_date",
+									"value": "2025-03-04"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 05 Mar 2025 21:42:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.11"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4969"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"base\": \"EUR\",\n    \"rates\": {\n        \"2025-03-04\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.162611\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.790962\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.147244\n            }\n        ],\n        \"2025-03-03\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.839337\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.936267\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.78501\n            }\n        ],\n        \"2025-03-02\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.948287\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.823332\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.016334\n            }\n        ],\n        \"2025-03-01\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.789652\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.103106\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.816227\n            }\n        ],\n        \"2025-02-28\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.0336\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.040287\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.802793\n            }\n        ],\n        \"2025-02-27\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.870666\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.949737\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.927331\n            }\n        ],\n        \"2025-02-26\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.709757\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.003932\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.05194\n            }\n        ],\n        \"2025-02-25\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.857248\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.705369\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.989132\n            }\n        ],\n        \"2025-02-24\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.930806\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.16945\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.04668\n            }\n        ],\n        \"2025-02-23\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.882382\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.120064\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.855804\n            }\n        ],\n        \"2025-02-22\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.708459\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.885454\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.086289\n            }\n        ],\n        \"2025-02-21\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.866064\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.143009\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.929092\n            }\n        ],\n        \"2025-02-20\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.157378\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.164753\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.046946\n            }\n        ],\n        \"2025-02-19\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.182371\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.782149\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.136039\n            }\n        ],\n        \"2025-02-18\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.195178\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.014591\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.730172\n            }\n        ],\n        \"2025-02-17\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.099648\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.787598\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.872126\n            }\n        ],\n        \"2025-02-16\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.162715\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.032018\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.094936\n            }\n        ],\n        \"2025-02-15\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.897536\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.062415\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.814106\n            }\n        ],\n        \"2025-02-14\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.113741\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.18474\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.993621\n            }\n        ],\n        \"2025-02-13\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.709035\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.733863\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.751357\n            }\n        ],\n        \"2025-02-12\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.73433\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.870007\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.149703\n            }\n        ],\n        \"2025-02-11\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.893751\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.953261\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.914085\n            }\n        ],\n        \"2025-02-10\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.885344\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.006491\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.02267\n            }\n        ],\n        \"2025-02-09\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.95798\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.054054\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.759336\n            }\n        ],\n        \"2025-02-08\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.952698\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.904442\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.962489\n            }\n        ],\n        \"2025-02-07\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.836364\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.098534\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.865214\n            }\n        ],\n        \"2025-02-06\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.805557\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.941206\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 1.186893\n            }\n        ],\n        \"2025-02-05\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.75104\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.062526\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.889873\n            }\n        ],\n        \"2025-02-04\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.853606\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.958961\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.797729\n            }\n        ],\n        \"2025-02-03\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.114172\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.000792\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.765878\n            }\n        ],\n        \"2025-02-02\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.811463\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.142113\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.95989\n            }\n        ],\n        \"2025-02-01\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.930273\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.144001\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.814813\n            }\n        ],\n        \"2025-01-31\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.164021\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.881393\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.741887\n            }\n        ],\n        \"2025-01-30\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.083838\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.810262\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.847754\n            }\n        ],\n        \"2025-01-29\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 1.135961\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.722279\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.706601\n            }\n        ],\n        \"2025-01-28\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.96781\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 0.997138\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.897721\n            }\n        ],\n        \"2025-01-27\": [\n            {\n                \"code\": \"CHF\",\n                \"rate\": 0.725279\n            },\n            {\n                \"code\": \"EUR\",\n                \"rate\": 1\n            },\n            {\n                \"code\": \"GBP\",\n                \"rate\": 1.073366\n            },\n            {\n                \"code\": \"USD\",\n                \"rate\": 0.825778\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "currencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/currencies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"currencies",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "currencies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/currencies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"currencies",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 05 Mar 2025 21:42:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.11"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"code\": \"CHF\",\n        \"name\": \"Swiss franc\",\n        \"symbol\": \"CHF\"\n    },\n    {\n        \"code\": \"USD\",\n        \"name\": \"United States dollar\",\n        \"symbol\": \"$\"\n    },\n    {\n        \"code\": \"GBP\",\n        \"name\": \"Pound sterling\",\n        \"symbol\": \"£\"\n    },\n    {\n        \"code\": \"EUR\",\n        \"name\": \"Euro\",\n        \"symbol\": \"€\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "currency exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/exchange/?source=CHF&target=EUR,USD&amount=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"exchange",
+						""
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "CHF"
+						},
+						{
+							"key": "target",
+							"value": "EUR,USD"
+						},
+						{
+							"key": "amount",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "currency exchange",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/exchange/?source=CHF&target=EUR,USD&amount=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"exchange",
+								""
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "CHF"
+								},
+								{
+									"key": "target",
+									"value": "EUR,USD"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 05 Mar 2025 21:51:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.11"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"base\": \"CHF\",\n    \"amount\": 100,\n    \"exchange\": {\n        \"EUR\": 128.65575322797284,\n        \"USD\": 118.5338904985153\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "currency exchange 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/exchange/?source=JPY&target=EUR,USD&amount=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"exchange",
+						""
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "JPY"
+						},
+						{
+							"key": "target",
+							"value": "EUR,USD"
+						},
+						{
+							"key": "amount",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "currency exchange 404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/exchange/?source=JPY&target=EUR,USD&amount=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"exchange",
+								""
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "JPY"
+								},
+								{
+									"key": "target",
+									"value": "EUR,USD"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 05 Mar 2025 21:59:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.11"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Exchange rate not found for EUR to JPY\"\n}"
+				}
+			]
+		}
+	]
+}
