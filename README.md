@@ -13,25 +13,32 @@ Docker Compose: A tool for defining and running multi-container Docker applicati
 Follow these steps to set up and run the application:
 
 1. Clone the repository:
+   ```
     git clone https://github.com/yourusername/MyCurrency.git
     cd MyCurrency
-2. Update the CURRENCY_BEACON_API_KEY variable:
+   ```
+3. Update the CURRENCY_BEACON_API_KEY variable:
     Open the docker-compose.yaml file in your favorite text editor.
     Locate the environment section and update the CURRENCY_BEACON_API_KEY variable with your actual API key.
     ```
     environment:
         - CURRENCY_BEACON_API_KEY=your_api_key_here
     ```
-3. Build and start the containers:
+4. Build and start the containers:
+    ```
     docker-compose up --build
+    ```
 
-4. Access the application:
+6. Access the application:
     Account for accessing the admin panel:
+    ```
     login: currency
     password: protectedpassword
-
+    ```
     The admin panel will be available at http://localhost:8000/admin/app/currency/.
     In the top right corner, there will be a "Convert" button that will open the currency conversion form.
+   ![Screenshot 2025-03-06 at 10 45 01](https://github.com/user-attachments/assets/34023ac3-7aa4-4d5e-a882-bed3ae6a66ce)
+
 
 # Possible Improvements
 
